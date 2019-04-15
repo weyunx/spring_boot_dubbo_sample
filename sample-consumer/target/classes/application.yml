@@ -1,0 +1,41 @@
+---
+spring:
+  profiles:
+    active: dev
+  application:
+    name: sample-consumer
+
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    port: -1
+    name: dubbo
+  application:
+    name: sample-consumer
+  consumer:
+    retries: 0
+    timeout: 6000
+demo:
+  service:
+    version: 1.0.0
+embedded:
+  zookeeper:
+    port: 2181
+server:
+  port: 8091
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    root: debug
+security:
+  oauth2:
+    client:
+      client-id: client
+      client-secret: 123456
+      access-token-uri: http://localhost:8081/oauth/token
+      user-authorization-uri: http://localhost:8081/oauth/authorize
+      scope: read
+      use-current-uri: false
+    resource:
+      user-info-uri: http://localhost:8081/user/me

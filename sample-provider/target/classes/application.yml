@@ -1,0 +1,35 @@
+---
+spring:
+  profiles:
+    active: dev
+  application:
+    name: sample-provider
+  datasource:
+    url: jdbc:mysql://111.230.101.225:3306/test?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123
+    hikari:
+      maximum-pool-size: 10
+
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    port: -1
+    name: dubbo
+  scan:
+    base-packages: com.bocsoft.rdm.sample.service.impl
+  application:
+    name: sample-provider
+    logger: slf4j
+
+mybatis:
+  type-aliases-package: com.bocsoft.rdm.sample.pojo
+  type-handlers-package: com.bocsoft.rdm.sample.service.impl
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    root: debug
+server:
+  port: 8081

@@ -1,0 +1,4 @@
+com/bocsoft/rdm/sample/service/impl/GreetServiceImpl.class
+com/bocsoft/rdm/sample/pojo/CityEntity.class
+com/bocsoft/rdm/sample/SampleProviderApplication.class
+com/bocsoft/rdm/sample/dao/CityMapper.class

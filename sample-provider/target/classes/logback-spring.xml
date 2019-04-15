@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property resource="application.yml"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%.-1level|%-40.40logger{0}|%msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- ${LOG_ROOT_LEVEL} 日志级别 -->
+    <root level="${logging.level.root}">
+        <appender-ref ref="console" />
+    </root>
+
+    <logger name="com.alibaba.dubbo" level="info"/>
+
+    <!-- Mybatis 日志配置 -->
+    <springProfile name="dev">
+        <logger name="com.bocsoft.rdm.sample.dao" level="debug"/>
+    </springProfile>
+</configuration>
+
